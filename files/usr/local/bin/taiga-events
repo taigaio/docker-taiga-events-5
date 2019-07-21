@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eo pipefail
+
+coffee index.coffee "$@" 2>&1 | tee -a /var/log/taiga-events.log
