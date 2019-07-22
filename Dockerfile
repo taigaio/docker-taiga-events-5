@@ -35,6 +35,7 @@ RUN set -exo pipefail; \
         jq '.dependencies["base64-url"] = "^2.3.2" | .dependencies.ws = "^7.1.1"' | \
         sponge package.json; \
     npm install; \
+    npm audit; \
     rm package-lock.json; \
     mkdir -p /etc/opt/taiga-events; \
     sed -i 's/8888/8080/' config.example.json; \
