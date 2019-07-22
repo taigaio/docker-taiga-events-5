@@ -27,6 +27,7 @@ RUN set -exo pipefail; \
     rm -r taiga-events.tar.gz; \
     mv taiga-events-${TAIGA_EVENTS_VERSION} /opt/taiga-events; \
     cd /opt/taiga-events; \
+    find . -type d -exec chmod 755 '{}' +; \
     find . -type f -exec chmod 644 '{}' +; \
     cat package.json | \
         # Make sure development dependencies are not installed
