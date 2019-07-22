@@ -21,7 +21,7 @@ RUN set -ex; \
     tar -xzf taiga-events.tar.gz; \
     rm -r taiga-events.tar.gz; \
     mv taiga-events-${TAIGA_EVENTS_VERSION} /opt/taiga-events; \
-    find /opt/taiga-events -type f -exec chmod 644 -- {} +; \
+    find /opt/taiga-events -type f -exec chmod 644 '{}' +; \
     npm install -g /opt/taiga-events; \
     mkdir -p /etc/opt/taiga-events; \
     sed -i 's/8888/8080/' /opt/taiga-events/config.example.json; \
