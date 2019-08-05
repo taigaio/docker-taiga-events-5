@@ -11,8 +11,8 @@ RUN set -ex; \
     adduser -D -H -g taiga -G taiga -s /sbin/nologin -S -u 101 taiga; \
     \
     rm -rf /root/.config /root/.npm /var/cache/apk/*
-ENV TAIGA_EVENTS_VERSION=3583834aba595006f290928470b91bd6e2a71a9e \
-    TAIGA_EVENTS_SHA256SUM=6c0b1e35ecc8d71c9319f1093fc73888b617c3cba299b0168641b405d2a8f3b7
+ENV TAIGA_EVENTS_VERSION=2de073c1a3883023050597a47582c6a7405914de \
+    TAIGA_EVENTS_SHA256SUM=447447e0deb289f6c03c1227d65d66e19ffe55569bf02151dc08a5f5513df2bd
 RUN set -exo pipefail; \
     \
     apk add --no-cache --virtual .build-deps \
