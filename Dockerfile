@@ -20,6 +20,8 @@ RUN set -exo pipefail; \
         moreutils \
     ; \
     \
+    mkdir -p /etc/opt/taiga-events; \
+    \
     wget -q -O taiga-events.tar.gz \
         https://github.com/taigaio/taiga-events/archive/${TAIGA_EVENTS_VERSION}.tar.gz; \
     echo "${TAIGA_EVENTS_SHA256SUM}  taiga-events.tar.gz" | sha256sum -c; \
@@ -38,10 +40,10 @@ RUN set -exo pipefail; \
     npm install; \
     npm audit; \
     rm package-lock.json; \
-    mkdir -p /etc/opt/taiga-events; \
     sed -i 's/8888/8080/' config.example.json; \
     mv config.example.json /etc/opt/taiga-events/config.json; \
     cd -; \
+    \
     touch /var/log/taiga-events.log; \
     chown taiga:taiga /var/log/taiga-events.log; \
     \
