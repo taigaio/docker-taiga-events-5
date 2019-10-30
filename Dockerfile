@@ -2,6 +2,7 @@ FROM node:10-alpine
 RUN set -ex; \
     \
     apk add --no-cache \
+        bash \
         tini \
     ; \
     \
@@ -50,6 +51,6 @@ RUN set -exo pipefail; \
 COPY files /
 WORKDIR /opt/taiga-events
 USER taiga
-ENTRYPOINT ["tini", "--", "taiga-events"]
+ENTRYPOINT ["taiga-events"]
 CMD ["--config", "/etc/opt/taiga-events/config.json"]
 EXPOSE 8080

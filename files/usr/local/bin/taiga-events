@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/bin/bash -e
 
-set -eo pipefail
+exec > >(tee -a /var/log/taiga-events.log) 2>&1
 
-coffee index.coffee "$@" 2>&1 | tee -a /var/log/taiga-events.log
+exec tini -- coffee index.coffee "$@"
