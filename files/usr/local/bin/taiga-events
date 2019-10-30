@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
-exec > >(tee -a /var/log/taiga-events.log) 2>&1
+exec > >(tee /var/log/taiga-events.log) 2>&1
 
 exec tini -e 143 -- coffee index.coffee "$@"
