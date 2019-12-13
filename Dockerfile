@@ -48,7 +48,7 @@ RUN set -exo pipefail; \
     \
     apk del .build-deps; \
     rm -rf /root/.config /root/.npm /var/cache/apk/*
-COPY files /
+COPY root /
 WORKDIR /opt/taiga-events
 USER taiga
 ENTRYPOINT ["taiga-events"]
