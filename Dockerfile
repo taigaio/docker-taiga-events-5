@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:12-alpine3.10
 RUN set -ex; \
     \
     apk add --no-cache \
