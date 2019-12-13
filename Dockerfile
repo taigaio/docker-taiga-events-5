@@ -29,7 +29,7 @@ RUN set -exo pipefail; \
         https://github.com/taigaio/taiga-events/archive/${TAIGA_EVENTS_VERSION}.tar.gz; \
     echo "${TAIGA_EVENTS_SHA256SUM}  taiga-events.tar.gz" | sha256sum -c; \
     tar -xzf taiga-events.tar.gz; \
-    rm -r taiga-events.tar.gz; \
+    rm taiga-events.tar.gz; \
     mv taiga-events-${TAIGA_EVENTS_VERSION} /opt/taiga-events; \
     \
     cd /opt/taiga-events; \
