@@ -44,6 +44,7 @@ RUN set -exo pipefail; \
     npm install; \
     sed -i 's/8888/8080/' config.example.json; \
     mv config.example.json /etc/opt/taiga-events/config.json; \
+    ln -s /etc/opt/taiga-events/config.json config.json; \
     cd -; \
     \
     apk del .build-deps; \
@@ -52,5 +53,4 @@ COPY root /
 WORKDIR /opt/taiga-events
 USER taiga
 ENTRYPOINT ["taiga-events"]
-CMD ["--config", "/etc/opt/taiga-events/config.json"]
 EXPOSE 8080
